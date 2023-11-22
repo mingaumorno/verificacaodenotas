@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificador de Aprovação</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Verificador de Aprovação</h1>
+
+<label for="nota">Digite a nota do aluno:</label>
+<input type="number" id="nota" placeholder="Insira a nota">
+<button onclick="verificarAprovacao()">Verificar</button>
+<p id="resultado"></p>
+
+<script>
+function verificarAprovacao() {
+  // Obtenha o valor da nota do input
+  var nota = document.getElementById('nota').value;
+
+  // Certifique-se de que a nota seja um número válido
+  if (isNaN(nota) || nota === '') {
+    alert('Por favor, insira uma nota válida.');
+    return;
+  }
+
+  // Converta a nota para um número
+  nota = parseFloat(nota);
+
+  // Verifique se a nota é maior ou igual a 6.0 para aprovação
+  if (nota >= 6.0) {
+    document.getElementById('resultado').innerText = 'Aprovado!';
+  } else {
+    document.getElementById('resultado').innerText = 'Reprovado';
+  }
+}
+</script>
+
+</body>
+</html>
